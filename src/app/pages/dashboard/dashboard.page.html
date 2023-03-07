@@ -1,0 +1,51 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" no-border>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Menú</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+          (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)"><!--metodos que trae por defecto el ionSlides-->
+          <ion-slide>
+            <img src="../../../assets/2.jpg">
+          </ion-slide>
+          <ion-slide>
+            <img src="../../../assets/1.jpg">
+          </ion-slide>
+          <ion-slide>
+            <img src="../../../assets/3.jpg">
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngIf="user != undefined" class="title ion-text-center"><!--El nngIf muestra si la variable usuario datos de lo contrario no se muestra el nombre-->
+    <h4>Bienvenido {{ user["nombre"]  }} </h4>
+  </div>
+
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-left" size="6" size-lg="3" size-md="4" size-sm="6"  *ngFor='let producto of producto'>
+          <!--se hace un ngFor para que muestre los productos guardado en la variable producto-->
+          <ion-card>
+            <ion-card-header class="ion-no-padding">
+              <img src="{{producto.image}}" />
+            </ion-card-header>
+          </ion-card>
+          
+          <p class="eventname ion-text-center">{{producto.name}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+</ion-content>

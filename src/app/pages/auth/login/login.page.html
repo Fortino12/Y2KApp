@@ -1,0 +1,30 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" no-border>
+    <ion-title>Inicio de Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="title ion-text-center">
+    <h4>Y2K</h4>
+    <p>Tú Mejor Opción En Tecnología</p>
+  </div>
+
+  <form #form="ngForm" (ngSubmit)="login(form)" method="post"><!--(ngSubmit)="login(form)" es metodo donde se iran los valores del formulario-->
+    
+    <ion-input  placeholder="Correo Electronico" class="primary-input" ngModel type="email" name="email"></ion-input>
+    
+    <ion-input ngModel placeholder="Contraseña" type="password" class="primary-input" name="password"></ion-input>
+    
+    <div class="ion-margin-top">
+      <ion-button expand="block" type="submit">Iniciar de Sesión</ion-button>
+    </div>
+    
+  </form>
+  
+  <div class="ion-margin-top ion-text-center">
+    <a (click)="dismiss()">Cerrar</a><!--Llamamos el metodo para cerrar laventana modal-->
+  </div>
+  
+</ion-content>

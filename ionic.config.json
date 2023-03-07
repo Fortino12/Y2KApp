@@ -1,5 +1,7 @@
 {
   "name": "Y2KApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

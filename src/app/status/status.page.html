@@ -1,0 +1,30 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" no-border>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+     </ion-buttons>
+    <ion-title>Estatus</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h3>Paga a tiempo y evita los recargos.</h3>
+
+  <ion-card *ngIf="user != undefined"><!--Se hace un ngIf si la variable esta definida aprecera el card y si no esta definada no aparecera-->
+    <ion-card-header class="ion-no-padding">
+      <img src="../../assets/LOGO1.png"/>
+      <ion-card-title class="ion-text-center">{{ user["nombre"]  }}</ion-card-title><!--Variable user y en corchete como se llama el dato que quieren mostrar-->
+      <ion-card-subtitle>{{ user["email"]  }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="ion-text-justify">
+      Te invitamos a realizar tu pago lo mas antes
+      posible en cualquier de nuestra sucursales
+      recuerda que la fecha limite de pago es el
+      día de cada mes.<br>
+      <ion-label>Estaus de Pago: {{ user["pago"]  }}</ion-label>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

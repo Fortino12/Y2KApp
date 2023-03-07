@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar  color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Envio de comprobante</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+   <ion-card>
+      <ion-card-header>
+        <ion-card-title>Instrucciones</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content class="ion-text-justify">
+         <ol>
+            <li value="1">Tener el bauche a la mano.</li>
+            <li>Apretar el botón de tomar foto.</li>
+            <li>Una vez abierta la camara, tomar foto al bauche.</li>
+            <li>Escribir el asunto del mensaje.</li>
+            <li>Escribir el mensaje.</li>
+            <li>Oprimir el boton de enviar.</li>
+            <li>Abrira la aplicación de correo y enviar el mensaje.</li>
+            <li>Una vez enviado el mensaje, se regresara a la aplicación Y2kApp.</li>
+            <li>LLegara la notificación de que ya se recibio el bauche.</li>
+         </ol>
+      </ion-card-content>
+    </ion-card>
+
+  <form [formGroup]="form"><!--Formulario para escribir el asunto y tomar la foto-->
+    <ion-list>
+       <ion-item margin-bottom>
+          <!--Este boton abrira la camara y tomara la foto con la funcion (click) y el nombre del metodo-->
+          <ion-button color="primary" text-center (click)="takePhoto()">Tomar Foto</ion-button> 
+       </ion-item>
+
+       <ion-item>
+          <img *ngIf="image" [src]="image"><!--la imagen aparecera si la variable image tiene guardada la imagen de lo contrio no-->
+       </ion-item>
+
+       <ion-item margin-bottom> 
+          <ion-label>Asunto:</ion-label> 
+          <ion-input type="string" formControlName="subject"></ion-input> 
+       </ion-item>
+
+       <ion-item margin-bottom> 
+          <ion-label>Mensaje:</ion-label> 
+          <ion-textarea formControlName="message"></ion-textarea> 
+       </ion-item>
+
+       <ion-button color="primary" [disabled]="!form.valid" (click)="enviar()">Enviar</ion-button>
+       <!--en el boton la función disabled bloqueara el boton hasta que llenen el formario y abre la aplicación-->
+    </ion-list> 
+ </form>
+
+</ion-content>

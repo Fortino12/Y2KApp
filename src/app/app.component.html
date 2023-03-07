@@ -3,25 +3,25 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+          <ion-list-header>Y2kApp</ion-list-header>
+          <ion-note>Tú Mejor Opción En Tecnología</ion-note>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index"><!--
+            se hace un *ngFor del array que se hizo en el ts donde se guradron la ubicacion de las pginas que apreceran 
+          -->
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+              <ion-label>{{ p.title }}</ion-label><!--con parecenti con la variable.nombre del atributo del array-->
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
+          <ion-item (click)="logout()"><!--Para que funcione el metodo se agrega la funcion pero cuando de un click y entre comillas el nombre del parentesis-->
+            <ion-icon slot="start" name="log-out"></ion-icon>
+            <ion-label>
+              Cerrar Sessión
+            </ion-label>
           </ion-item>
         </ion-list>
+
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
